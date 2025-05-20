@@ -1,5 +1,6 @@
 import {useQuery} from '@tanstack/react-query'
 import { FileItem } from '@/types/file'
+import { mockDataMap } from '@/mocks/file'
 
 // const fetchFiles = async (parentId: string | null): Promise<FileItem[]> => {
 //     const url = parentId
@@ -32,40 +33,6 @@ import { FileItem } from '@/types/file'
 //   })
 // }
 
-const mockDataMap: Record<string, FileItem[]> = {
-    root: [
-      {
-        id: 'folder-1',
-        name: '📁 Papers',
-        mimeType: 'directory',
-        createdAt: new Date().toISOString(),
-        isIndexed: false,
-      },
-      {
-        id: 'file-1',
-        name: '📄 Notes.txt',
-        mimeType: 'file',
-        createdAt: new Date().toISOString(),
-        isIndexed: true,
-      },
-    ],
-    'folder-1': [
-      {
-        id: 'file-2',
-        name: '📄 paper1.pdf',
-        mimeType: 'file',
-        createdAt: new Date().toISOString(),
-        isIndexed: false,
-      },
-      {
-        id: 'file-3',
-        name: '📄 paper2.pdf',
-        mimeType: 'file',
-        createdAt: new Date().toISOString(),
-        isIndexed: true,
-      },
-    ],
-  }
   
   
   const fetchFiles = async (parentId: string | null): Promise<FileItem[]> => {
