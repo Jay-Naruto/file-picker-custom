@@ -1,4 +1,4 @@
-# 📂 Google Drive File Picker
+# 📂 Custom File Picker
 
 A custom file picker that mimics Google Drive’s interface and Finder-style navigation. This tool enables users to browse, index, and de-index files and folders in a Google Drive-like view.
 

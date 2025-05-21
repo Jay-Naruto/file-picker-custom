@@ -2,6 +2,11 @@ import BackForwardNav from '@/components/FilePicker/BackForwardNav';
 import TableBody from '@/components/FilePicker/TableBody';
 import TableToolbar from '@/components/FilePicker/TableToolbar';
 
+export const metadata = {
+  title: 'Custom File Picker',
+  description: 'Custom file picker UI with folder navigation, search, and indexing.',
+}
+
 export default function Home() {
   return (
     <main className="min-h-screen bg-[#f9f9f9] p-6">
