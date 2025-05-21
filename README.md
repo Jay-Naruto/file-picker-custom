@@ -1,40 +1,123 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# 📂 Google Drive File Picker
 
-## Getting Started
+A custom file picker that mimics Google Drive’s interface and Finder-style navigation. This tool enables users to browse, index, and de-index files and folders in a Google Drive-like view.
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+## ✨ Features
+
+- Navigate folders using **Back/Forward** buttons (like macOS Finder)
+- **Search**, **Sort by Name/Date**, and **Filter**
+- Index and De-index files individually or in bulk
+- Visually responsive UI built with **shadcn/ui** and **Tailwind CSS**
+- Built with **SOLID design principles** and clean component architecture
+- Only table **rows** re-render on navigation (low CLS)
+
+
+
+## 🧱 Tech Stack
+
+- **Next.js 14 (App Router)**
+- **React + TypeScript**
+- **Tailwind CSS + shadcn/ui**
+- **Zustand** (state management)
+- **Lighthouse-tested** for performance (low CLS)
+
+
+
+## 🧩 Project Structure
+
+```
+/components/FilePicker
+  ├── TableBody.tsx            # Shell layout
+  ├── TableRows.tsx            # Only renders rows
+  ├── TableToolbar.tsx         # Sort and Search
+  ├── FooterActions.tsx        # Bulk actions
+  ├── BackForwardNav.tsx       # Folder navigation
+  ├── TableRow.tsx             # Single row layout
+  ├── TableLayout.tsx          # Table layout
+
+/hooks
+  └── useFiles.ts              # Mock file fetching
+
+/store
+  └── filePickerStore.ts       # Zustand global state
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## ⚠️ API Notice
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+The original backend API for fetching Google Drive contents was **not functional** during development. The company confirmed:
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+> “Yes, it's happening, unfortunately, I don't have time to fix that. Can you fake the response, or create your own Google Drive connection?”
 
-## Learn More
+Therefore, I used **mock data** to simulate a realistic file system and behaviors like indexing and folder navigation.
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🚀 Getting Started
 
-## Deploy on Vercel
+### 1. Clone
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+git clone https://github.com/Jay-Naruto/file-picker-custom.git .
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+### 2. Install
+
+```bash
+pnpm install
+# or
+npm install
+```
+
+### 3. Run Dev Server
+
+```bash
+pnpm dev
+# or
+npm run dev
+```
+
+Open `http://localhost:3000` in your browser.
+
+
+
+## 📊 Performance Notes
+
+- ✅ Lighthouse-tested with **low CLS**
+- ✅ Folder changes **only re-render file rows**, not entire table
+- ✅ Optimized with `useMemo` and Zustand to prevent unnecessary renders
+- ✅ UI split for performance: rows, layout, and controls isolated
+
+
+
+## 🧭 Future Improvements
+
+- Integrate real API when backend is fixed
+
+
+
+
+## Environment Variables
+
+To run this project, you will need to add the following environment variables to your .env file
+
+`NEXT_PUBLIC_STACKAI_EMAIL`
+
+`NEXT_PUBLIC_STACKAI_PASSWORD`
+
+`NEXT_PUBLIC_STACKAI_ANON_KEY`
+
+`NEXT_PUBLIC_STACKAI_CONNECTION_ID`
+
+`NEXT_PUBLIC_STACKAI_BASE_URL`
+
+
+
+
+
+## ✅ Summary
+
+This project is a robust, fast, and modular file picker UI using mocked Google Drive data due to a broken API. All major UI/UX and performance criteria have been met through component reusability, state sharing with Zustand, and optimized rendering practices.

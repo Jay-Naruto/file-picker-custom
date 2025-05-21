@@ -12,7 +12,7 @@ type Props = {
   isLoading: boolean
 }
 
-function FileRows({
+function TableRows({
   files,
   selected,
   indexed,
@@ -54,4 +54,4 @@ function FileRows({
   )
 }
 
-export default React.memo(FileRows)
+export default React.memo(TableRows)

@@ -4,10 +4,10 @@ import { useEffect, useMemo, useState } from 'react';
 import { useFiles } from '@/hooks/useFiles';
 import { useFilePickerStore } from '@/store/filePickerStore';
 import TableLayout from './TableLayout';
-import FileRows from './FileRows';
+import TableRows from './TableRows';
 import FooterActions from './FooterActions';
 
-export default function FileTableBody() {
+export default function TableBody() {
   const [selected, setSelected] = useState<string[]>([]);
   const [indexed, setIndexed] = useState<Record<string, boolean>>({});
 
@@ -59,7 +59,7 @@ export default function FileTableBody() {
   return (
     <>
       <TableLayout>
-        <FileRows
+        <TableRows
           files={filtered}
           selected={selected}
           indexed={indexed}
