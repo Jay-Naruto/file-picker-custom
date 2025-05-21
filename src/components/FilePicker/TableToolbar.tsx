@@ -6,35 +6,26 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select'
+import { useFilePickerStore } from '@/store/filePickerStore'
 
-type Props = {
-  searchQuery: string
-  setSearchQuery: (val: string) => void
-  sortBy: 'name' | 'date'
-  setSortBy: (val: 'name' | 'date') => void
-}
+export default function TableToolbar() {
+  const { searchQuery, sortBy, setSearchQuery, setSortBy } = useFilePickerStore()
 
-export default function TableToolbar({
-  searchQuery,
-  setSearchQuery,
-  sortBy,
-  setSortBy,
-}: Props) {
   return (
-    <div className="flex items-center justify-between mb-4">
+    <div className="flex items-center justify-between mb-4 gap-2">
       <Input
-        placeholder="Search files"
+        placeholder="Search files..."
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
-        className="max-w-sm text-black"
+        className="w-1/2 text-sm bg-gray-100 text-black"
       />
       <Select value={sortBy} onValueChange={(val) => setSortBy(val as 'name' | 'date')}>
-        <SelectTrigger className="w-[140px] border-gray-300 text-gray-700">
+        <SelectTrigger className="w-[160px] bg-gray-100 text-sm text-black">
           <SelectValue placeholder="Sort by" />
         </SelectTrigger>
         <SelectContent>
-          <SelectItem value="name">Sort: Name</SelectItem>
-          <SelectItem value="date">Sort: Date</SelectItem>
+          <SelectItem value="name">Sort by Name</SelectItem>
+          <SelectItem value="date">Sort by Date</SelectItem>
         </SelectContent>
       </Select>
     </div>
