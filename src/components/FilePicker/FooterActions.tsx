@@ -13,13 +13,13 @@ export default function FooterActions({
 
   return (
     <div className="flex justify-end items-center gap-4 px-4 py-3 border-t mt-4">
-      <Button variant="ghost" onClick={onClear}>
+      <Button variant="secondary" className="cursor-pointer" onClick={onClear}>
         Cancel
       </Button>
-      <Button onClick={() => onBulkToggleIndex("index")}>
+      <Button className="cursor-pointer"  onClick={() => onBulkToggleIndex("index")}>
         Index {selected.length} selected
       </Button>
-      <Button variant="destructive" onClick={() => onBulkToggleIndex("deindex")}>
+      <Button className="cursor-pointer"  variant="destructive" onClick={() => onBulkToggleIndex("deindex")}>
         De-index {selected.length} selected
       </Button>
     </div>
