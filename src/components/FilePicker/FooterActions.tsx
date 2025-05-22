@@ -1,21 +1,27 @@
-import { Button } from '@/components/ui/button'
+import { Button } from "../ui/button";
 
-type Props = {
-  selected: string[]
-  onClear: () => void
-}
-
-export default function FooterActions({ selected, onClear }: Props) {
-  if (selected.length === 0) return null
+export default function FooterActions({
+  selected,
+  onClear,
+  onBulkToggleIndex,
+}: {
+  selected: string[];
+  onClear: () => void;
+  onBulkToggleIndex: (action: "index" | "deindex") => void;
+}) {
+  if (selected.length === 0) return null;
 
   return (
-    <div className="mt-4 flex justify-end gap-4 border-t pt-4">
-      <Button variant="ghost" onClick={onClear} className='text-black cursor-pointer'>
+    <div className="flex justify-end items-center gap-4 px-4 py-3 border-t mt-4">
+      <Button variant="ghost" onClick={onClear}>
         Cancel
       </Button>
-      <Button onClick={() => console.log('Indexing:', selected)} className='cursor-pointer'>
+      <Button onClick={() => onBulkToggleIndex("index")}>
         Index {selected.length} selected
       </Button>
+      <Button variant="destructive" onClick={() => onBulkToggleIndex("deindex")}>
+        De-index {selected.length} selected
+      </Button>
     </div>
-  )
+  );
 }

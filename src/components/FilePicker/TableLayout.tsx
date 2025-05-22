@@ -9,7 +9,6 @@ export default function TableLayout({ children }: { children: React.ReactNode })
         <thead className="bg-gray-100 text-sm font-medium text-gray-700">
           <tr>
             <th className="p-2 w-10">
-              {/* Bulk checkbox can go here if needed */}
             </th>
             <th className="px-4 py-2 text-left">Name</th>
             <th className="px-4 py-2 text-left">Type</th>

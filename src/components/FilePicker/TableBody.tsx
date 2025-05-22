@@ -43,6 +43,16 @@ export default function TableBody() {
     );
   };
 
+  const bulkToggleIndex = (action: 'index' | 'deindex') => {
+    setIndexed((prev) => {
+      const updated = { ...prev };
+      selected.forEach((id) => {
+        updated[id] = action === 'index';
+      });
+      return updated;
+    });
+  };
+
   const filtered = useMemo(() => {
     return currentData
       .filter((file) =>
@@ -70,7 +80,11 @@ export default function TableBody() {
         />
       </TableLayout>
 
-      <FooterActions selected={selected} onClear={() => setSelected([])} />
+      <FooterActions
+        selected={selected}
+        onClear={() => setSelected([])}
+        onBulkToggleIndex={bulkToggleIndex}
+      />
     </>
   );
 }

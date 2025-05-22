@@ -20,7 +20,7 @@ export default function TableToolbar() {
         className="w-1/2 text-sm bg-gray-100 text-black"
       />
       <Select value={sortBy} onValueChange={(val) => setSortBy(val as 'name' | 'date')}>
-        <SelectTrigger className="w-[160px] bg-gray-100 text-sm text-black">
+        <SelectTrigger className="w-[160px] bg-gray-100 text-sm text-black cursor-pointer">
           <SelectValue placeholder="Sort by" />
         </SelectTrigger>
         <SelectContent>

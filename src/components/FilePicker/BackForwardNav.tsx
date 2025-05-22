@@ -8,7 +8,7 @@ export default function BackForwardNav() {
     <div className="flex gap-2 mb-4">
       <Button
         variant="ghost"
-        className="bg-gray-100 hover:bg-gray-200 text-gray-700 px-2 py-1 h-8"
+        className="bg-gray-100 hover:bg-gray-200 text-gray-700 px-2 py-1 h-8 cursor-pointer"
         onClick={goBack}
         disabled={historyIndex === 0}
       >
@@ -16,7 +16,7 @@ export default function BackForwardNav() {
       </Button>
       <Button
         variant="ghost"
-        className="bg-gray-100 hover:bg-gray-200 text-gray-700 px-2 py-1 h-8"
+        className="bg-gray-100 hover:bg-gray-200 text-gray-700 px-2 py-1 h-8 cursor-pointer"
         onClick={goForward}
         disabled={historyIndex === history.length - 1}
       >

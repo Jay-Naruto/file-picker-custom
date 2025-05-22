@@ -35,7 +35,7 @@ export default function TableRow({
         {new Date(file.createdAt).toLocaleDateString()}
       </td>
       <td className="p-2 text-right">
-        <Button variant="outline" size="sm" className='cursor-pointer' onClick={onToggleIndex}>
+        <Button variant="default" size="sm" className='cursor-pointer' onClick={onToggleIndex}>
           {isIndexed ? 'De-index' : 'Index'}
         </Button>
       </td>
